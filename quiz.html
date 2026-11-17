@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz | QuizzyClass</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h2>QuizzyClass</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <!-- Main Quiz Content -->
+    <main>
+
+        <section class="quiz-container">
+
+            <!-- Quiz Heading -->
+            <div class="quiz-header">
+                <h1 id="chapter-title">Chapter Name</h1>
+                <p>Test your knowledge with MCQs.</p>
+            </div>
+
+            <!-- Question Progress -->
+            <div class="quiz-progress">
+                <p id="question-number">Question 1 of 10</p>
+
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Question Section -->
+            <div class="question-card">
+
+                <h2 id="question-text">
+                    Your question will appear here.
+                </h2>
+
+                <!-- Answer Options -->
+                <div class="options">
+
+                    <label>
+                        <input type="radio" name="answer" value="A">
+                        Option A
+                    </label>
+
+                    <label>
+                        <input type="radio" name="answer" value="B">
+                        Option B
+                    </label>
+
+                    <label>
+                        <input type="radio" name="answer" value="C">
+                        Option C
+                    </label>
+
+                    <label>
+                        <input type="radio" name="answer" value="D">
+                        Option D
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="quiz-navigation">
+
+                <button type="button" id="previous-btn">
+                    Previous
+                </button>
+
+                <button type="button" id="next-btn">
+                    Next
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 QuizzyClass. Learn by Practising.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
