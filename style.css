@@ -453,3 +453,24 @@ footer p {
         font-size: 17px;
     }
 }
+
+/* Quiz Result */
+.result-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.result-container h2 {
+    color: #4F46E5;
+    margin-bottom: 15px;
+}
+
+.result-container p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+}

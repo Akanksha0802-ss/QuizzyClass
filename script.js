@@ -56,36 +56,6 @@ const questions = [
     }
 ];
 
-// // Select the question element
-// const questionText = document.getElementById("question-text");
-
-// // Select all answer option labels
-// const optionLabels = document.querySelectorAll(".options label");
-
-// // Function to display a question
-// function displayQuestion() {
-
-//     // Get the first question
-//     const currentQuestion = questions[0];
-
-//     // Display the question text
-//     questionText.textContent = currentQuestion.question;
-
-//     // Display the answer options
-//     currentQuestion.options.forEach((option, index) => {
-
-//         optionLabels[index].innerHTML = `
-//             <input type="radio" name="answer" value="${index}">
-//             ${option}
-//         `;
-
-//     });
-// }
-
-// // Call the function
-// displayQuestion();
-
-
 let currentQuestionIndex = 0;
 let selectedAnswers = new Array(questions.length).fill(null);
 
@@ -99,6 +69,9 @@ const progressFill = document.querySelector(".progress-fill");
 
 const previousButton = document.getElementById("previous-btn");
 const nextButton = document.getElementById("next-btn");
+
+const resultContainer = document.getElementById("result-container");
+const scoreText = document.getElementById("score-text");
 
 // Display the current question
 function displayQuestion() {
@@ -149,14 +122,33 @@ function displayQuestion() {
 nextButton.addEventListener("click", function () {
 
     if (currentQuestionIndex < questions.length - 1) {
-
         currentQuestionIndex++;
-
         displayQuestion();
-
+    } else {
+        calculateScore();
     }
 
 });
+
+// Calculate quiz score
+function calculateScore() {
+    let score = 0;
+
+    questions.forEach(function (question, index) {
+
+        if (selectedAnswers[index] === question.correctAnswer) {
+            score++;
+        }
+
+    });
+
+    scoreText.textContent = `You scored ${score} out of ${questions.length}.`;
+
+    resultContainer.hidden = false;
+
+    console.log("Your score is:", score);
+
+}
 
 // Previous button functionality
 previousButton.addEventListener("click", function () {
@@ -179,9 +171,7 @@ optionsContainer.addEventListener("change", function (event) {
 
     if (event.target.name === "answer") {
 
-        selectedAnswers[currentQuestionIndex] =
-            Number(event.target.value);
-
+        selectedAnswers[currentQuestionIndex] = Number(event.target.value);
     }
 
 });
