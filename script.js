@@ -56,5 +56,113 @@ const questions = [
     }
 ];
 
-//console.log("QuizzyClass JavaScript is working!");
+// // Select the question element
+// const questionText = document.getElementById("question-text");
 
+// // Select all answer option labels
+// const optionLabels = document.querySelectorAll(".options label");
+
+// // Function to display a question
+// function displayQuestion() {
+
+//     // Get the first question
+//     const currentQuestion = questions[0];
+
+//     // Display the question text
+//     questionText.textContent = currentQuestion.question;
+
+//     // Display the answer options
+//     currentQuestion.options.forEach((option, index) => {
+
+//         optionLabels[index].innerHTML = `
+//             <input type="radio" name="answer" value="${index}">
+//             ${option}
+//         `;
+
+//     });
+// }
+
+// // Call the function
+// displayQuestion();
+
+
+let currentQuestionIndex = 0;
+
+// Select HTML elements
+const questionText = document.getElementById("question-text");
+const optionLabels = document.querySelectorAll(".options label");
+
+const questionNumber = document.getElementById("question-number");
+const progressFill = document.querySelector(".progress-fill");
+
+const previousButton = document.getElementById("previous-btn");
+const nextButton = document.getElementById("next-btn");
+
+// Display the current question
+function displayQuestion() {
+
+    // Get the current question
+    const currentQuestion = questions[currentQuestionIndex];
+
+    // Display question text
+    questionText.textContent = currentQuestion.question;
+
+    // Display question number
+    questionNumber.textContent =
+        `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+
+    // Update progress bar
+    const progress =
+        ((currentQuestionIndex + 1) / questions.length) * 100;
+
+    progressFill.style.width = `${progress}%`;
+
+    // Display answer options
+    currentQuestion.options.forEach((option, index) => {
+
+        optionLabels[index].innerHTML = `
+            <input type="radio" name="answer" value="${index}">
+            ${option}
+        `;
+
+    });
+
+    // Disable Previous button on first question
+    previousButton.disabled = currentQuestionIndex === 0;
+
+    // Change Next button text on last question
+    if (currentQuestionIndex === questions.length - 1) {
+        nextButton.textContent = "Submit";
+    } else {
+        nextButton.textContent = "Next";
+    }
+}
+
+// Next button functionality
+nextButton.addEventListener("click", function () {
+
+    if (currentQuestionIndex < questions.length - 1) {
+
+        currentQuestionIndex++;
+
+        displayQuestion();
+
+    }
+
+});
+
+// Previous button functionality
+previousButton.addEventListener("click", function () {
+
+    if (currentQuestionIndex > 0) {
+
+        currentQuestionIndex--;
+
+        displayQuestion();
+
+    }
+
+});
+
+// Display the first question
+displayQuestion();
