@@ -87,10 +87,12 @@ const questions = [
 
 
 let currentQuestionIndex = 0;
+let selectedAnswers = new Array(questions.length).fill(null);
 
 // Select HTML elements
 const questionText = document.getElementById("question-text");
 const optionLabels = document.querySelectorAll(".options label");
+const optionsContainer = document.querySelector(".options");
 
 const questionNumber = document.getElementById("question-number");
 const progressFill = document.querySelector(".progress-fill");
@@ -121,9 +123,14 @@ function displayQuestion() {
     currentQuestion.options.forEach((option, index) => {
 
         optionLabels[index].innerHTML = `
-            <input type="radio" name="answer" value="${index}">
-            ${option}
-        `;
+        <input 
+          type="radio" 
+          name="answer" 
+          value="${index}"
+          ${selectedAnswers[currentQuestionIndex] === index ? "checked" : ""}
+    >
+    ${option}
+`;
 
     });
 
@@ -166,3 +173,15 @@ previousButton.addEventListener("click", function () {
 
 // Display the first question
 displayQuestion();
+
+// Save the selected answer
+optionsContainer.addEventListener("change", function (event) {
+
+    if (event.target.name === "answer") {
+
+        selectedAnswers[currentQuestionIndex] =
+            Number(event.target.value);
+
+    }
+
+});
