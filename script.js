@@ -63,6 +63,7 @@ let selectedAnswers = new Array(questions.length).fill(null);
 const questionText = document.getElementById("question-text");
 const optionLabels = document.querySelectorAll(".options label");
 const optionsContainer = document.querySelector(".options");
+const quizContainer = document.querySelector(".quiz-container");
 
 const questionNumber = document.getElementById("question-number");
 const progressFill = document.querySelector(".progress-fill");
@@ -144,6 +145,7 @@ function calculateScore() {
 
     scoreText.textContent = `You scored ${score} out of ${questions.length}.`;
 
+    quizContainer.hidden = true;
     resultContainer.hidden = false;
 
     console.log("Your score is:", score);

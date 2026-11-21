@@ -474,3 +474,7 @@ footer p {
     font-weight: 500;
     color: #333333;
 }
+
+[hidden] {
+    display: none !important;
+}
