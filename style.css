@@ -316,7 +316,6 @@ footer p {
 }
 
 
-
 /* Quiz Page */
 
 .quiz-container {
@@ -454,27 +453,72 @@ footer p {
     }
 }
 
-/* Quiz Result */
+/* Quiz Result Card */
 .result-container {
-    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 35px 25px;
+
     background-color: #ffffff;
-    padding: 30px;
-    margin: 20px auto;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
+.result-icon {
+    font-size: 70px;
+}
+
+
+/* Result Heading */
 .result-container h2 {
-    color: #4F46E5;
-    margin-bottom: 15px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #1f2937;
+
+    margin-bottom: 20px;
 }
 
+/* Score Text */
 .result-container p {
-    font-size: 18px;
-    font-weight: 500;
-    color: #333333;
+    font-size: 22px;
+    font-weight: 600;
+    color: #4F46E5;
+
+    margin-top: 15px;
 }
 
-[hidden] {
-    display: none !important;
+/* Mobile Responsive */
+@media (max-width: 600px) {
+
+    .result-container {
+        width: 90%;
+        padding: 25px 18px;
+        margin: 25px auto;
+    }
+
+    .result-container h2 {
+        font-size: 22px;
+    }
+
+    .result-container p {
+        font-size: 19px;
+    }
+
+}
+
+   /* Highlight Score */
+    #score-text {
+    font-size: 32px;
+    font-weight: 700;
+    color: #4f46e5;
+    background-color: #eef2ff;
+    padding: 12px 25px;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 15px 0;
 }
