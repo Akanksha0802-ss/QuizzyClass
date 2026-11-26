@@ -74,6 +74,8 @@ const nextButton = document.getElementById("next-btn");
 const resultContainer = document.getElementById("result-container");
 const scoreText = document.getElementById("score-text");
 
+const retryButton = document.getElementById("retry-btn");
+
 // Display the current question
 function displayQuestion() {
 
@@ -151,6 +153,17 @@ function calculateScore() {
     console.log("Your score is:", score);
 
 }
+
+retryButton.addEventListener("click", function () {
+    currentQuestionIndex = 0;
+
+    selectedAnswers = new Array(questions.length).fill(null);
+
+    resultContainer.hidden = true;
+    quizContainer.hidden = false;
+
+    displayQuestion();
+});
 
 // Previous button functionality
 previousButton.addEventListener("click", function () {

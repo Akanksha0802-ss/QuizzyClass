@@ -469,8 +469,19 @@ footer p {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
+/* Result Icon */
 .result-icon {
-    font-size: 70px;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+/* Motivational Message */
+.result-message {
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: #6b7280 !important;
+    margin-top: 20px;
+    line-height: 1.6;
 }
 
 
@@ -521,4 +532,28 @@ footer p {
     border-radius: 12px;
     display: inline-block;
     margin: 15px 0;
+}
+
+/* Try Again Button */
+#retry-btn {
+    display: block;
+    margin: 25px auto 0;
+    padding: 12px 30px;
+
+    background-color: #4F46E5;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect */
+#retry-btn:hover {
+    background-color: #3730A3;
 }
