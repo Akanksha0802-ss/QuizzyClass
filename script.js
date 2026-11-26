@@ -147,6 +147,18 @@ function calculateScore() {
 
     scoreText.textContent = `You scored ${score} out of ${questions.length}.`;
 
+    const resultMessage = document.querySelector(".result-message");
+
+    if (score === questions.length) {
+        resultMessage.textContent = "Excellent! Perfect score! 🌟";
+    } else if (score >= questions.length * 0.8) {
+        resultMessage.textContent = "Great work! Almost perfect! 👏";
+    } else if (score >= questions.length * 0.6) {
+        resultMessage.textContent = "Good effort! Keep practicing! 😊";
+    } else {
+        resultMessage.textContent = "Don't give up! Try again! 💪";
+    }
+
     quizContainer.hidden = true;
     resultContainer.hidden = false;
 
